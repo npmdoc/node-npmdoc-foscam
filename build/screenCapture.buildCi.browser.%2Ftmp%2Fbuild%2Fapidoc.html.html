@@ -1,0 +1,2201 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/fvdm/nodejs-foscam#readme">foscam (v0.2.2)</a>
+</h1>
+<h4>Remote control, view and config a Foscam/Tenvis IP camera</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam">module foscam</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.camera_params">
+            function <span class="apidocSignatureSpan">foscam.</span>camera_params
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.control.camera">
+            function <span class="apidocSignatureSpan">foscam.</span>control.camera
+            <span class="apidocSignatureSpan">( param, value, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.control.decoder">
+            function <span class="apidocSignatureSpan">foscam.</span>control.decoder
+            <span class="apidocSignatureSpan">( cmd, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.params">
+            function <span class="apidocSignatureSpan">foscam.</span>params
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.go">
+            function <span class="apidocSignatureSpan">foscam.</span>preset.go
+            <span class="apidocSignatureSpan">( id, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.id2cmd">
+            function <span class="apidocSignatureSpan">foscam.</span>preset.id2cmd
+            <span class="apidocSignatureSpan">( action, id )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.set">
+            function <span class="apidocSignatureSpan">foscam.</span>preset.set
+            <span class="apidocSignatureSpan">( id, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.reboot">
+            function <span class="apidocSignatureSpan">foscam.</span>reboot
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.restore_factory">
+            function <span class="apidocSignatureSpan">foscam.</span>restore_factory
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.set.alias">
+            function <span class="apidocSignatureSpan">foscam.</span>set.alias
+            <span class="apidocSignatureSpan">( alias, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.set.datetime">
+            function <span class="apidocSignatureSpan">foscam.</span>set.datetime
+            <span class="apidocSignatureSpan">( props, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.setup">
+            function <span class="apidocSignatureSpan">foscam.</span>setup
+            <span class="apidocSignatureSpan">( props, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.snapshot">
+            function <span class="apidocSignatureSpan">foscam.</span>snapshot
+            <span class="apidocSignatureSpan">( filepath, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.status">
+            function <span class="apidocSignatureSpan">foscam.</span>status
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.talk">
+            function <span class="apidocSignatureSpan">foscam.</span>talk
+            <span class="apidocSignatureSpan">( props )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">foscam.</span>_eventsCount</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">foscam.</span>_events</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">foscam.</span>control</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">foscam.</span>domain</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">foscam.</span>preset</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">foscam.</span>set</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">foscam.</span>settings</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.camera_params">module foscam.camera_params</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.camera_params.camera_params">
+            function <span class="apidocSignatureSpan">foscam.</span>camera_params
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.control">module foscam.control</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.control.camera">
+            function <span class="apidocSignatureSpan">foscam.control.</span>camera
+            <span class="apidocSignatureSpan">( param, value, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.control.decoder">
+            function <span class="apidocSignatureSpan">foscam.control.</span>decoder
+            <span class="apidocSignatureSpan">( cmd, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.control.camera">module foscam.control.camera</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.control.camera.camera">
+            function <span class="apidocSignatureSpan">foscam.control.</span>camera
+            <span class="apidocSignatureSpan">( param, value, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.control.decoder">module foscam.control.decoder</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.control.decoder.decoder">
+            function <span class="apidocSignatureSpan">foscam.control.</span>decoder
+            <span class="apidocSignatureSpan">( cmd, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.params">module foscam.params</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.params.params">
+            function <span class="apidocSignatureSpan">foscam.</span>params
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.preset">module foscam.preset</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.go">
+            function <span class="apidocSignatureSpan">foscam.preset.</span>go
+            <span class="apidocSignatureSpan">( id, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.id2cmd">
+            function <span class="apidocSignatureSpan">foscam.preset.</span>id2cmd
+            <span class="apidocSignatureSpan">( action, id )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.set">
+            function <span class="apidocSignatureSpan">foscam.preset.</span>set
+            <span class="apidocSignatureSpan">( id, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.preset.go">module foscam.preset.go</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.go.go">
+            function <span class="apidocSignatureSpan">foscam.preset.</span>go
+            <span class="apidocSignatureSpan">( id, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.preset.id2cmd">module foscam.preset.id2cmd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.id2cmd.id2cmd">
+            function <span class="apidocSignatureSpan">foscam.preset.</span>id2cmd
+            <span class="apidocSignatureSpan">( action, id )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.preset.set">module foscam.preset.set</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.preset.set.set">
+            function <span class="apidocSignatureSpan">foscam.preset.</span>set
+            <span class="apidocSignatureSpan">( id, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.reboot">module foscam.reboot</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.reboot.reboot">
+            function <span class="apidocSignatureSpan">foscam.</span>reboot
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.restore_factory">module foscam.restore_factory</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.restore_factory.restore_factory">
+            function <span class="apidocSignatureSpan">foscam.</span>restore_factory
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.set">module foscam.set</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.set.alias">
+            function <span class="apidocSignatureSpan">foscam.set.</span>alias
+            <span class="apidocSignatureSpan">( alias, cb )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.set.datetime">
+            function <span class="apidocSignatureSpan">foscam.set.</span>datetime
+            <span class="apidocSignatureSpan">( props, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.set.alias">module foscam.set.alias</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.set.alias.alias">
+            function <span class="apidocSignatureSpan">foscam.set.</span>alias
+            <span class="apidocSignatureSpan">( alias, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.set.datetime">module foscam.set.datetime</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.set.datetime.datetime">
+            function <span class="apidocSignatureSpan">foscam.set.</span>datetime
+            <span class="apidocSignatureSpan">( props, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.setup">module foscam.setup</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.setup.setup">
+            function <span class="apidocSignatureSpan">foscam.</span>setup
+            <span class="apidocSignatureSpan">( props, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.snapshot">module foscam.snapshot</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.snapshot.snapshot">
+            function <span class="apidocSignatureSpan">foscam.</span>snapshot
+            <span class="apidocSignatureSpan">( filepath, cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.status">module foscam.status</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.status.status">
+            function <span class="apidocSignatureSpan">foscam.</span>status
+            <span class="apidocSignatureSpan">( cb )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.foscam.talk">module foscam.talk</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.foscam.talk.talk">
+            function <span class="apidocSignatureSpan">foscam.</span>talk
+            <span class="apidocSignatureSpan">( props )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam" id="apidoc.module.foscam">module foscam</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.camera_params" id="apidoc.element.foscam.camera_params">
+        function <span class="apidocSignatureSpan">foscam.</span>camera_params
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camera_params = function ( cb ) {
+	app.talk({
+		path:		'get_camera_params.cgi',
+		callback:	function( data ) {
+			var result = {}
+			data.replace( /var ([^=]+)=([^;]+);/g, function( str, key, value ) {
+				result[ key ] = parseInt( value )
+			})
+			cb( result )
+		}
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### ( callback )
+
+**Permission: visitor**
+
+Get camera sensor settings.
+
+```js
+cam.<span class="apidocCodeKeywordSpan">camera_params</span>( console.log )
+```
+```js
+{ resolution: 32,
+brightness: 96,
+contrast: 4,
+mode: 1,
+flip: 0,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.control.camera" id="apidoc.element.foscam.control.camera">
+        function <span class="apidocSignatureSpan">foscam.</span>control.camera
+        <span class="apidocSignatureSpan">( param, value, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">control.camera = function ( param, value, cb ) {
+		
+		// fix param
+		if( typeof param == 'string' &amp;&amp; !param.match( /^[0-9]+$/ ) ) {
+			switch( param ) {
+				
+				case 'brightness':         param = 1; break
+				case 'contrast':           param = 2; break
+				
+				// resolution
+				case 'resolution':
+					param = 0
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]{1,2}$/ ) ) {
+						switch( value ) {
+							case '320':
+							case '320x240':
+							case '320*240':
+								value = 8
+								break
+								
+							case '640':
+							case '640x480':
+							case '640*480':
+								value = 32
+								break
+						}
+					}
+					break
+				
+				case 'mode':
+					param = 3
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]$/ ) ) {
+						switch( value.toLowerCase() ) {
+							case '50':
+							case '50hz':
+							case '50 hz':
+								value = 0
+								break
+								
+							case '60':
+							case '60hz':
+							case '60 hz':
+								value = 1
+								break
+								
+							case 'outdoor':
+							case 'outside':
+								value = 2
+								break
+						}
+					}
+					break
+					
+				case 'flipmirror':
+					param = 5
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]$/ ) ) {
+						switch( value.toLowerCase() ) {
+							case 'default':
+								value = 0
+								break
+								
+							case 'flip':
+								value = 1
+								break
+								
+							case 'mirror':
+								value = 2
+								break
+								
+							case 'flipmirror':
+							case 'flip&amp;mirror':
+							case 'flip+mirror':
+							case 'flip + mirror':
+							case 'flip &amp; mirror':
+								value = 3
+								break
+						}
+					}
+					break
+			}
+		}
+		
+		// send it
+		app.talk({
+			path:		'camera_control.cgi',
+			fields: {
+				param:	param,
+				value:	value
+			},
+			callback:	cb
+		})
+		
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.control.decoder" id="apidoc.element.foscam.control.decoder">
+        function <span class="apidocSignatureSpan">foscam.</span>control.decoder
+        <span class="apidocSignatureSpan">( cmd, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">control.decoder = function ( cmd, cb ) {
+		
+		if( typeof cmd == 'string' &amp;&amp; !cmd.match( /^[0-9]+$/ ) ) {
+			switch( cmd ) {
+				case 'up':                      cmd = 0; break
+				case 'stop up':                 cmd = 1; break
+				case 'down':                    cmd = 2; break
+				case 'stop down':               cmd = 3; break
+				case 'left':                    cmd = 4; break
+				case 'stop left':               cmd = 5; break
+				case 'right':                   cmd = 6; break
+				case 'stop right':              cmd = 7; break
+				case 'center':                  cmd = 25; break
+				case 'vertical patrol':         cmd = 26; break
+				case 'stop vertical patrol':    cmd = 27; break
+				case 'horizontal patrol':       cmd = 28; break
+				case 'stop horizontal patrol':  cmd = 29; break
+				case 'io output high':          cmd = 94; break
+				case 'io output low':           cmd = 95; break
+			}
+		}
+		
+		app.talk({
+			path:		'decoder_control.cgi',
+			fields:		{ command: cmd },
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+host: 'mycamera.lan',
+port: 81,
+user: 'admin'
+pass: ''
+})
+
+// start rotating left
+cam.<span class="apidocCodeKeywordSpan">control.decoder</span>( 'left', function() {
+
+// stop rotation
+cam.control.decoder( 'stop left', function() {
+
+  // take a picture and store it on your computer
+  cam.snapshot( '/path/to/save.jpg', console.log )
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.params" id="apidoc.element.foscam.params">
+        function <span class="apidocSignatureSpan">foscam.</span>params
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">params = function ( cb ) {
+	app.talk({
+		path:		'get_params.cgi',
+		callback:	cb
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.go" id="apidoc.element.foscam.preset.go">
+        function <span class="apidocSignatureSpan">foscam.</span>preset.go
+        <span class="apidocSignatureSpan">( id, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">preset.go = function ( id, cb ) {
+  app.control.decoder( app.preset.id2cmd( 'go', id ), cb )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## preset.go
+### ( id, [cb] )
+
+Move camera to the position as stored in preset #`id`. You can use presets 1 to 16.
+
+```js
+cam.<span class="apidocCodeKeywordSpan">preset.go</span>( 3, console.log )
+```
+
+## control.decoder
+### ( command, [callback] )
+
+Control camera movement, like pan and tilt.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.id2cmd" id="apidoc.element.foscam.preset.id2cmd">
+        function <span class="apidocSignatureSpan">foscam.</span>preset.id2cmd
+        <span class="apidocSignatureSpan">( action, id )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">preset.id2cmd = function ( action, id ) {
+  var cmds = {
+    set: [30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60],
+    go: [31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61]
+  }
+  return cmds[ action ][ id-1 ]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      set: [30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60],
+      go: [31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61]
+    }
+    return cmds[ action ][ id-1 ]
+  },
+
+  set: function( id, cb ) {
+    app.control.decoder( app.<span class="apidocCodeKeywordSpan">preset.id2cmd</span>( 'set', id ), cb )
+  },
+
+  go: function( id, cb ) {
+    app.control.decoder( app.preset.id2cmd( 'go', id ), cb )
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.set" id="apidoc.element.foscam.preset.set">
+        function <span class="apidocSignatureSpan">foscam.</span>preset.set
+        <span class="apidocSignatureSpan">( id, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">preset.set = function ( id, cb ) {
+  app.control.decoder( app.preset.id2cmd( 'set', id ), cb )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## preset.set
+### ( id, [cb] )
+
+Save current camera position in preset #`id`. You can set presets 1 to 16.
+
+```js
+cam.<span class="apidocCodeKeywordSpan">preset.set</span>( 3, console.log )
+```
+
+## preset.go
+### ( id, [cb] )
+
+Move camera to the position as stored in preset #`id`. You can use presets 1 to 16.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.reboot" id="apidoc.element.foscam.reboot">
+        function <span class="apidocSignatureSpan">foscam.</span>reboot
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reboot = function ( cb ) {
+	app.talk({
+		path:		'reboot.cgi',
+		callback:	cb
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.restore_factory" id="apidoc.element.foscam.restore_factory">
+        function <span class="apidocSignatureSpan">foscam.</span>restore_factory
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restore_factory = function ( cb ) {
+	app.talk({
+		path:		'restore_factory.cgi',
+		callback:	cb
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.set.alias" id="apidoc.element.foscam.set.alias">
+        function <span class="apidocSignatureSpan">foscam.</span>set.alias
+        <span class="apidocSignatureSpan">( alias, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set.alias = function ( alias, cb ) {
+		app.talk({
+			path:		'set_alias.cgi',
+			fields:		{ alias: alias },
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.set.datetime" id="apidoc.element.foscam.set.datetime">
+        function <span class="apidocSignatureSpan">foscam.</span>set.datetime
+        <span class="apidocSignatureSpan">( props, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set.datetime = function ( props, cb ) {
+		app.talk({
+			path:		'set_datetime.cgi',
+			fields:		props,
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.setup" id="apidoc.element.foscam.setup">
+        function <span class="apidocSignatureSpan">foscam.</span>setup
+        <span class="apidocSignatureSpan">( props, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function ( props, cb ) {
+	for( var key in props ) {
+		app.settings[ key ] = props[ key ]
+	}
+	
+	if( typeof cb == 'function' ) {
+		app.status( cb )
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```sh
+npm install foscam
+```
+
+```js
+var cam = require('foscam')
+
+cam.<span class="apidocCodeKeywordSpan">setup</span>({
+  host: 'mycamera.lan',
+  port: 81,
+  user: 'admin'
+  pass: ''
+})
+
+// start rotating left
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.snapshot" id="apidoc.element.foscam.snapshot">
+        function <span class="apidocSignatureSpan">foscam.</span>snapshot
+        <span class="apidocSignatureSpan">( filepath, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">snapshot = function ( filepath, cb ) {
+	if( !cb &amp;&amp; typeof filepath == 'function' ) {
+		var cb = filepath
+		var filepath = false
+	}
+	
+	app.talk({
+		path:		'snapshot.cgi',
+		encoding:	'binary',
+		callback:	function( bin ) {
+			if( filepath ) {
+				fs.writeFile( filepath, bin, 'binary', function( err ) {
+					if( err ) {
+						throw err
+						cb( false )
+					} else {
+						cb( filepath )
+					}
+				})
+			} else {
+				cb( bin )
+			}
+		}
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// start rotating left
+cam.control.decoder( 'left', function() {
+
+  // stop rotation
+  cam.control.decoder( 'stop left', function() {
+
+    // take a picture and store it on your computer
+    cam.<span class="apidocCodeKeywordSpan">snapshot</span>( '/path/to/save.jpg', console.log )
+
+  })
+
+})
+```
+
+### Or directly from Github
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.status" id="apidoc.element.foscam.status">
+        function <span class="apidocSignatureSpan">foscam.</span>status
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function ( cb ) {
+	app.talk({
+		path:		'get_status.cgi',
+		callback:	function( data ) {
+			var result = {}
+			
+			data = data.split('\n')
+			for( var d in data ) {
+				if( data[d] != '' ) {
+					var line = data[d].split('var ')
+					line = String(line[1]).split('=')
+					line[1] = String(line[1]).replace( /;$/, '' )
+					result[ line[0] ] = line[1].substr(0,1) == '\'' ? line[1].substr(1, line[1].length -2) : line[1]
+				}
+			}
+			
+			if( result.alarm_status ) {
+				switch( result.alarm_status ) {
+					case '0': result.alarm_status_str = 'no alarm'; break
+					case '1': result.alarm_status_str = 'motion alarm'; break
+					case '2': result.alarm_status_str = 'input alarm'; break
+				}
+			}
+			
+			if( result.ddns_status ) {
+				switch( result.ddns_status ) {
+					case '0': result.ddns_status_str = 'No Action'; break
+					case '1': result.ddns_status_str = 'It\'s connecting...'; break
+					case '2': result.ddns_status_str = 'Can\'t connect to the Server'; break
+					case '3': result.ddns_status_str = 'Dyndns Succeed'; break
+					case '4': result.ddns_status_str = 'DynDns Failed: Dyndns.org Server Error'; break
+					case '5': result.ddns_status_str = 'DynDns Failed: Incorrect User or Password'; break
+					case '6': result.ddns_status_str = 'DynDns Failed: Need Credited User'; break
+					case '7': result.ddns_status_str = 'DynDns Failed: Illegal Host Format'; break
+					case '8': result.ddns_status_str = 'DynDns Failed: The Host Does not Exist'; break
+					case '9': result.ddns_status_str = 'DynDns Failed: The Host Does not Belong to You'; break
+					case '10': result.ddns_status_str = 'DynDns Failed: Too Many or Too Few Hosts'; break
+					case '11': result.ddns_status_str = 'DynDns Failed: The Host is Blocked for Abusing'; break
+					case '12': result.ddns_status_str = 'DynDns Failed: Bad Reply from Server'; break
+					case '13': result.ddns_status_str = 'DynDns Failed: Bad Reply from Server'; break
+					case '14': result.ddns_status_str = 'Oray Failed: Bad Reply from Server'; break
+					case '15': result.ddns_status_str = 'Oray Failed: Incorrect User or Password'; break
+					case '16': result.ddns_status_str = 'Oray Failed: Incorrect Hostname'; break
+					case '17': result.ddns_status_str = 'Oray Succeed'; break
+					case '18': result.ddns_status_str = 'Reserved'; break
+					case '19': result.ddns_status_str = 'Reserved'; break
+					case '20': result.ddns_status_str = 'Reserved'; break
+					case '21': result.ddns_status_str = 'Reserved'; break
+				}
+			}
+			
+			if( result.upnp_status ) {
+				switch( result.upnp_status ) {
+					case '0': result.upnp_status_str = 'No Action'; break
+					case '1': result.upnp_status_str = 'Succeed'; break
+					case '2': result.upnp_status_str = 'Device System Error'; break
+					case '3': result.upnp_status_str = 'Errors in Network Communication'; break
+					case '4': result.upnp_status_str = 'Errors in Chat with UPnP Device'; break
+					case '5': result.upnp_status_str = 'Rejected by UPnP Device, Maybe Port Conflict'; break
+				}
+			}
+			
+			cb( result )
+		}
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## status
+### ( callback )
+**Permission: everyone**
+
+Get basic details from the camera.
+
+```js
+cam.<span class="apidocCodeKeywordSpan">status</span>( console.log )
+```
+```js
+{ id: '001A11A00A0B',
+sys_ver: '0.37.2.36',
+app_ver: '3.2.2.18',
+alias: 'Cam1',
+now: '1343304558',
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.talk" id="apidoc.element.foscam.talk">
+        function <span class="apidocSignatureSpan">foscam.</span>talk
+        <span class="apidocSignatureSpan">( props )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">talk = function ( props ) {
+	
+	if( !props.fields ) {
+		props.fields = {}
+	}
+	
+	props.fields.user = app.settings.user
+	props.fields.pwd = app.settings.pass
+	path = '/'+ props.path +'?'+ querystring.stringify( props.fields )
+	
+	// connect
+	var req = http.request({
+		
+		host:		app.settings.host,
+		port:		app.settings.port,
+		path:		path,
+		method:		'GET'
+		
+	}, function( response ) {
+		
+		// response
+		response.setEncoding( props.encoding ? props.encoding : 'utf8' )
+		var data = ''
+		
+		response.on( 'data', function( chunk ) { data += chunk })
+		response.on( 'end', function() {
+			
+			if( typeof props.callback == 'function' ) {
+				data = data.trim()
+				props.callback( data )
+			}
+			
+		})
+		
+	})
+	
+	// fail
+	req.on( 'error', function( err ) {
+		app.emit( 'connection-error', err )
+	})
+	
+	// disconnect
+	req.end()
+	
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		app.status( cb )
+	}
+}
+
+
+// status
+app.status = function( cb ) {
+	app.<span class="apidocCodeKeywordSpan">talk</span>({
+		path:		'get_status.cgi',
+		callback:	function( data ) {
+			var result = {}
+			
+			data = data.split('\n')
+			for( var d in data ) {
+				if( data[d] != '' ) {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.camera_params" id="apidoc.module.foscam.camera_params">module foscam.camera_params</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.camera_params.camera_params" id="apidoc.element.foscam.camera_params.camera_params">
+        function <span class="apidocSignatureSpan">foscam.</span>camera_params
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camera_params = function ( cb ) {
+	app.talk({
+		path:		'get_camera_params.cgi',
+		callback:	function( data ) {
+			var result = {}
+			data.replace( /var ([^=]+)=([^;]+);/g, function( str, key, value ) {
+				result[ key ] = parseInt( value )
+			})
+			cb( result )
+		}
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### ( callback )
+
+**Permission: visitor**
+
+Get camera sensor settings.
+
+```js
+cam.<span class="apidocCodeKeywordSpan">camera_params</span>( console.log )
+```
+```js
+{ resolution: 32,
+brightness: 96,
+contrast: 4,
+mode: 1,
+flip: 0,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.control" id="apidoc.module.foscam.control">module foscam.control</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.control.camera" id="apidoc.element.foscam.control.camera">
+        function <span class="apidocSignatureSpan">foscam.control.</span>camera
+        <span class="apidocSignatureSpan">( param, value, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camera = function ( param, value, cb ) {
+		
+		// fix param
+		if( typeof param == 'string' &amp;&amp; !param.match( /^[0-9]+$/ ) ) {
+			switch( param ) {
+				
+				case 'brightness':         param = 1; break
+				case 'contrast':           param = 2; break
+				
+				// resolution
+				case 'resolution':
+					param = 0
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]{1,2}$/ ) ) {
+						switch( value ) {
+							case '320':
+							case '320x240':
+							case '320*240':
+								value = 8
+								break
+								
+							case '640':
+							case '640x480':
+							case '640*480':
+								value = 32
+								break
+						}
+					}
+					break
+				
+				case 'mode':
+					param = 3
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]$/ ) ) {
+						switch( value.toLowerCase() ) {
+							case '50':
+							case '50hz':
+							case '50 hz':
+								value = 0
+								break
+								
+							case '60':
+							case '60hz':
+							case '60 hz':
+								value = 1
+								break
+								
+							case 'outdoor':
+							case 'outside':
+								value = 2
+								break
+						}
+					}
+					break
+					
+				case 'flipmirror':
+					param = 5
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]$/ ) ) {
+						switch( value.toLowerCase() ) {
+							case 'default':
+								value = 0
+								break
+								
+							case 'flip':
+								value = 1
+								break
+								
+							case 'mirror':
+								value = 2
+								break
+								
+							case 'flipmirror':
+							case 'flip&amp;mirror':
+							case 'flip+mirror':
+							case 'flip + mirror':
+							case 'flip &amp; mirror':
+								value = 3
+								break
+						}
+					}
+					break
+			}
+		}
+		
+		// send it
+		app.talk({
+			path:		'camera_control.cgi',
+			fields: {
+				param:	param,
+				value:	value
+			},
+			callback:	cb
+		})
+		
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.control.decoder" id="apidoc.element.foscam.control.decoder">
+        function <span class="apidocSignatureSpan">foscam.control.</span>decoder
+        <span class="apidocSignatureSpan">( cmd, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decoder = function ( cmd, cb ) {
+		
+		if( typeof cmd == 'string' &amp;&amp; !cmd.match( /^[0-9]+$/ ) ) {
+			switch( cmd ) {
+				case 'up':                      cmd = 0; break
+				case 'stop up':                 cmd = 1; break
+				case 'down':                    cmd = 2; break
+				case 'stop down':               cmd = 3; break
+				case 'left':                    cmd = 4; break
+				case 'stop left':               cmd = 5; break
+				case 'right':                   cmd = 6; break
+				case 'stop right':              cmd = 7; break
+				case 'center':                  cmd = 25; break
+				case 'vertical patrol':         cmd = 26; break
+				case 'stop vertical patrol':    cmd = 27; break
+				case 'horizontal patrol':       cmd = 28; break
+				case 'stop horizontal patrol':  cmd = 29; break
+				case 'io output high':          cmd = 94; break
+				case 'io output low':           cmd = 95; break
+			}
+		}
+		
+		app.talk({
+			path:		'decoder_control.cgi',
+			fields:		{ command: cmd },
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+host: 'mycamera.lan',
+port: 81,
+user: 'admin'
+pass: ''
+})
+
+// start rotating left
+cam.control.<span class="apidocCodeKeywordSpan">decoder</span>( 'left', function() {
+
+// stop rotation
+cam.control.decoder( 'stop left', function() {
+
+  // take a picture and store it on your computer
+  cam.snapshot( '/path/to/save.jpg', console.log )
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.control.camera" id="apidoc.module.foscam.control.camera">module foscam.control.camera</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.control.camera.camera" id="apidoc.element.foscam.control.camera.camera">
+        function <span class="apidocSignatureSpan">foscam.control.</span>camera
+        <span class="apidocSignatureSpan">( param, value, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camera = function ( param, value, cb ) {
+		
+		// fix param
+		if( typeof param == 'string' &amp;&amp; !param.match( /^[0-9]+$/ ) ) {
+			switch( param ) {
+				
+				case 'brightness':         param = 1; break
+				case 'contrast':           param = 2; break
+				
+				// resolution
+				case 'resolution':
+					param = 0
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]{1,2}$/ ) ) {
+						switch( value ) {
+							case '320':
+							case '320x240':
+							case '320*240':
+								value = 8
+								break
+								
+							case '640':
+							case '640x480':
+							case '640*480':
+								value = 32
+								break
+						}
+					}
+					break
+				
+				case 'mode':
+					param = 3
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]$/ ) ) {
+						switch( value.toLowerCase() ) {
+							case '50':
+							case '50hz':
+							case '50 hz':
+								value = 0
+								break
+								
+							case '60':
+							case '60hz':
+							case '60 hz':
+								value = 1
+								break
+								
+							case 'outdoor':
+							case 'outside':
+								value = 2
+								break
+						}
+					}
+					break
+					
+				case 'flipmirror':
+					param = 5
+					if( typeof value == 'string' &amp;&amp; !value.match( /^[0-9]$/ ) ) {
+						switch( value.toLowerCase() ) {
+							case 'default':
+								value = 0
+								break
+								
+							case 'flip':
+								value = 1
+								break
+								
+							case 'mirror':
+								value = 2
+								break
+								
+							case 'flipmirror':
+							case 'flip&amp;mirror':
+							case 'flip+mirror':
+							case 'flip + mirror':
+							case 'flip &amp; mirror':
+								value = 3
+								break
+						}
+					}
+					break
+			}
+		}
+		
+		// send it
+		app.talk({
+			path:		'camera_control.cgi',
+			fields: {
+				param:	param,
+				value:	value
+			},
+			callback:	cb
+		})
+		
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.control.decoder" id="apidoc.module.foscam.control.decoder">module foscam.control.decoder</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.control.decoder.decoder" id="apidoc.element.foscam.control.decoder.decoder">
+        function <span class="apidocSignatureSpan">foscam.control.</span>decoder
+        <span class="apidocSignatureSpan">( cmd, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decoder = function ( cmd, cb ) {
+		
+		if( typeof cmd == 'string' &amp;&amp; !cmd.match( /^[0-9]+$/ ) ) {
+			switch( cmd ) {
+				case 'up':                      cmd = 0; break
+				case 'stop up':                 cmd = 1; break
+				case 'down':                    cmd = 2; break
+				case 'stop down':               cmd = 3; break
+				case 'left':                    cmd = 4; break
+				case 'stop left':               cmd = 5; break
+				case 'right':                   cmd = 6; break
+				case 'stop right':              cmd = 7; break
+				case 'center':                  cmd = 25; break
+				case 'vertical patrol':         cmd = 26; break
+				case 'stop vertical patrol':    cmd = 27; break
+				case 'horizontal patrol':       cmd = 28; break
+				case 'stop horizontal patrol':  cmd = 29; break
+				case 'io output high':          cmd = 94; break
+				case 'io output low':           cmd = 95; break
+			}
+		}
+		
+		app.talk({
+			path:		'decoder_control.cgi',
+			fields:		{ command: cmd },
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+host: 'mycamera.lan',
+port: 81,
+user: 'admin'
+pass: ''
+})
+
+// start rotating left
+cam.control.<span class="apidocCodeKeywordSpan">decoder</span>( 'left', function() {
+
+// stop rotation
+cam.control.decoder( 'stop left', function() {
+
+  // take a picture and store it on your computer
+  cam.snapshot( '/path/to/save.jpg', console.log )
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.params" id="apidoc.module.foscam.params">module foscam.params</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.params.params" id="apidoc.element.foscam.params.params">
+        function <span class="apidocSignatureSpan">foscam.</span>params
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">params = function ( cb ) {
+	app.talk({
+		path:		'get_params.cgi',
+		callback:	cb
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.preset" id="apidoc.module.foscam.preset">module foscam.preset</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.go" id="apidoc.element.foscam.preset.go">
+        function <span class="apidocSignatureSpan">foscam.preset.</span>go
+        <span class="apidocSignatureSpan">( id, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">go = function ( id, cb ) {
+  app.control.decoder( app.preset.id2cmd( 'go', id ), cb )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## preset.go
+### ( id, [cb] )
+
+Move camera to the position as stored in preset #`id`. You can use presets 1 to 16.
+
+```js
+cam.preset.<span class="apidocCodeKeywordSpan">go</span>( 3, console.log )
+```
+
+## control.decoder
+### ( command, [callback] )
+
+Control camera movement, like pan and tilt.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.id2cmd" id="apidoc.element.foscam.preset.id2cmd">
+        function <span class="apidocSignatureSpan">foscam.preset.</span>id2cmd
+        <span class="apidocSignatureSpan">( action, id )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">id2cmd = function ( action, id ) {
+  var cmds = {
+    set: [30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60],
+    go: [31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61]
+  }
+  return cmds[ action ][ id-1 ]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      set: [30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60],
+      go: [31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61]
+    }
+    return cmds[ action ][ id-1 ]
+  },
+
+  set: function( id, cb ) {
+    app.control.decoder( app.preset.<span class="apidocCodeKeywordSpan">id2cmd</span>( 'set', id ), cb )
+  },
+
+  go: function( id, cb ) {
+    app.control.decoder( app.preset.id2cmd( 'go', id ), cb )
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.set" id="apidoc.element.foscam.preset.set">
+        function <span class="apidocSignatureSpan">foscam.preset.</span>set
+        <span class="apidocSignatureSpan">( id, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function ( id, cb ) {
+  app.control.decoder( app.preset.id2cmd( 'set', id ), cb )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## preset.set
+### ( id, [cb] )
+
+Save current camera position in preset #`id`. You can set presets 1 to 16.
+
+```js
+cam.preset.<span class="apidocCodeKeywordSpan">set</span>( 3, console.log )
+```
+
+## preset.go
+### ( id, [cb] )
+
+Move camera to the position as stored in preset #`id`. You can use presets 1 to 16.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.preset.go" id="apidoc.module.foscam.preset.go">module foscam.preset.go</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.go.go" id="apidoc.element.foscam.preset.go.go">
+        function <span class="apidocSignatureSpan">foscam.preset.</span>go
+        <span class="apidocSignatureSpan">( id, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">go = function ( id, cb ) {
+  app.control.decoder( app.preset.id2cmd( 'go', id ), cb )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## preset.go
+### ( id, [cb] )
+
+Move camera to the position as stored in preset #`id`. You can use presets 1 to 16.
+
+```js
+cam.preset.<span class="apidocCodeKeywordSpan">go</span>( 3, console.log )
+```
+
+## control.decoder
+### ( command, [callback] )
+
+Control camera movement, like pan and tilt.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.preset.id2cmd" id="apidoc.module.foscam.preset.id2cmd">module foscam.preset.id2cmd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.id2cmd.id2cmd" id="apidoc.element.foscam.preset.id2cmd.id2cmd">
+        function <span class="apidocSignatureSpan">foscam.preset.</span>id2cmd
+        <span class="apidocSignatureSpan">( action, id )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">id2cmd = function ( action, id ) {
+  var cmds = {
+    set: [30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60],
+    go: [31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61]
+  }
+  return cmds[ action ][ id-1 ]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      set: [30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60],
+      go: [31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61]
+    }
+    return cmds[ action ][ id-1 ]
+  },
+
+  set: function( id, cb ) {
+    app.control.decoder( app.preset.<span class="apidocCodeKeywordSpan">id2cmd</span>( 'set', id ), cb )
+  },
+
+  go: function( id, cb ) {
+    app.control.decoder( app.preset.id2cmd( 'go', id ), cb )
+  }
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.preset.set" id="apidoc.module.foscam.preset.set">module foscam.preset.set</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.preset.set.set" id="apidoc.element.foscam.preset.set.set">
+        function <span class="apidocSignatureSpan">foscam.preset.</span>set
+        <span class="apidocSignatureSpan">( id, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function ( id, cb ) {
+  app.control.decoder( app.preset.id2cmd( 'set', id ), cb )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## preset.set
+### ( id, [cb] )
+
+Save current camera position in preset #`id`. You can set presets 1 to 16.
+
+```js
+cam.preset.<span class="apidocCodeKeywordSpan">set</span>( 3, console.log )
+```
+
+## preset.go
+### ( id, [cb] )
+
+Move camera to the position as stored in preset #`id`. You can use presets 1 to 16.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.reboot" id="apidoc.module.foscam.reboot">module foscam.reboot</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.reboot.reboot" id="apidoc.element.foscam.reboot.reboot">
+        function <span class="apidocSignatureSpan">foscam.</span>reboot
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reboot = function ( cb ) {
+	app.talk({
+		path:		'reboot.cgi',
+		callback:	cb
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.restore_factory" id="apidoc.module.foscam.restore_factory">module foscam.restore_factory</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.restore_factory.restore_factory" id="apidoc.element.foscam.restore_factory.restore_factory">
+        function <span class="apidocSignatureSpan">foscam.</span>restore_factory
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restore_factory = function ( cb ) {
+	app.talk({
+		path:		'restore_factory.cgi',
+		callback:	cb
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.set" id="apidoc.module.foscam.set">module foscam.set</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.set.alias" id="apidoc.element.foscam.set.alias">
+        function <span class="apidocSignatureSpan">foscam.set.</span>alias
+        <span class="apidocSignatureSpan">( alias, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">alias = function ( alias, cb ) {
+		app.talk({
+			path:		'set_alias.cgi',
+			fields:		{ alias: alias },
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.set.datetime" id="apidoc.element.foscam.set.datetime">
+        function <span class="apidocSignatureSpan">foscam.set.</span>datetime
+        <span class="apidocSignatureSpan">( props, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">datetime = function ( props, cb ) {
+		app.talk({
+			path:		'set_datetime.cgi',
+			fields:		props,
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.set.alias" id="apidoc.module.foscam.set.alias">module foscam.set.alias</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.set.alias.alias" id="apidoc.element.foscam.set.alias.alias">
+        function <span class="apidocSignatureSpan">foscam.set.</span>alias
+        <span class="apidocSignatureSpan">( alias, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">alias = function ( alias, cb ) {
+		app.talk({
+			path:		'set_alias.cgi',
+			fields:		{ alias: alias },
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.set.datetime" id="apidoc.module.foscam.set.datetime">module foscam.set.datetime</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.set.datetime.datetime" id="apidoc.element.foscam.set.datetime.datetime">
+        function <span class="apidocSignatureSpan">foscam.set.</span>datetime
+        <span class="apidocSignatureSpan">( props, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">datetime = function ( props, cb ) {
+		app.talk({
+			path:		'set_datetime.cgi',
+			fields:		props,
+			callback:	cb
+		})
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.setup" id="apidoc.module.foscam.setup">module foscam.setup</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.setup.setup" id="apidoc.element.foscam.setup.setup">
+        function <span class="apidocSignatureSpan">foscam.</span>setup
+        <span class="apidocSignatureSpan">( props, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function ( props, cb ) {
+	for( var key in props ) {
+		app.settings[ key ] = props[ key ]
+	}
+	
+	if( typeof cb == 'function' ) {
+		app.status( cb )
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```sh
+npm install foscam
+```
+
+```js
+var cam = require('foscam')
+
+cam.<span class="apidocCodeKeywordSpan">setup</span>({
+  host: 'mycamera.lan',
+  port: 81,
+  user: 'admin'
+  pass: ''
+})
+
+// start rotating left
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.snapshot" id="apidoc.module.foscam.snapshot">module foscam.snapshot</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.snapshot.snapshot" id="apidoc.element.foscam.snapshot.snapshot">
+        function <span class="apidocSignatureSpan">foscam.</span>snapshot
+        <span class="apidocSignatureSpan">( filepath, cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">snapshot = function ( filepath, cb ) {
+	if( !cb &amp;&amp; typeof filepath == 'function' ) {
+		var cb = filepath
+		var filepath = false
+	}
+	
+	app.talk({
+		path:		'snapshot.cgi',
+		encoding:	'binary',
+		callback:	function( bin ) {
+			if( filepath ) {
+				fs.writeFile( filepath, bin, 'binary', function( err ) {
+					if( err ) {
+						throw err
+						cb( false )
+					} else {
+						cb( filepath )
+					}
+				})
+			} else {
+				cb( bin )
+			}
+		}
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// start rotating left
+cam.control.decoder( 'left', function() {
+
+  // stop rotation
+  cam.control.decoder( 'stop left', function() {
+
+    // take a picture and store it on your computer
+    cam.<span class="apidocCodeKeywordSpan">snapshot</span>( '/path/to/save.jpg', console.log )
+
+  })
+
+})
+```
+
+### Or directly from Github
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.status" id="apidoc.module.foscam.status">module foscam.status</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.status.status" id="apidoc.element.foscam.status.status">
+        function <span class="apidocSignatureSpan">foscam.</span>status
+        <span class="apidocSignatureSpan">( cb )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function ( cb ) {
+	app.talk({
+		path:		'get_status.cgi',
+		callback:	function( data ) {
+			var result = {}
+			
+			data = data.split('\n')
+			for( var d in data ) {
+				if( data[d] != '' ) {
+					var line = data[d].split('var ')
+					line = String(line[1]).split('=')
+					line[1] = String(line[1]).replace( /;$/, '' )
+					result[ line[0] ] = line[1].substr(0,1) == '\'' ? line[1].substr(1, line[1].length -2) : line[1]
+				}
+			}
+			
+			if( result.alarm_status ) {
+				switch( result.alarm_status ) {
+					case '0': result.alarm_status_str = 'no alarm'; break
+					case '1': result.alarm_status_str = 'motion alarm'; break
+					case '2': result.alarm_status_str = 'input alarm'; break
+				}
+			}
+			
+			if( result.ddns_status ) {
+				switch( result.ddns_status ) {
+					case '0': result.ddns_status_str = 'No Action'; break
+					case '1': result.ddns_status_str = 'It\'s connecting...'; break
+					case '2': result.ddns_status_str = 'Can\'t connect to the Server'; break
+					case '3': result.ddns_status_str = 'Dyndns Succeed'; break
+					case '4': result.ddns_status_str = 'DynDns Failed: Dyndns.org Server Error'; break
+					case '5': result.ddns_status_str = 'DynDns Failed: Incorrect User or Password'; break
+					case '6': result.ddns_status_str = 'DynDns Failed: Need Credited User'; break
+					case '7': result.ddns_status_str = 'DynDns Failed: Illegal Host Format'; break
+					case '8': result.ddns_status_str = 'DynDns Failed: The Host Does not Exist'; break
+					case '9': result.ddns_status_str = 'DynDns Failed: The Host Does not Belong to You'; break
+					case '10': result.ddns_status_str = 'DynDns Failed: Too Many or Too Few Hosts'; break
+					case '11': result.ddns_status_str = 'DynDns Failed: The Host is Blocked for Abusing'; break
+					case '12': result.ddns_status_str = 'DynDns Failed: Bad Reply from Server'; break
+					case '13': result.ddns_status_str = 'DynDns Failed: Bad Reply from Server'; break
+					case '14': result.ddns_status_str = 'Oray Failed: Bad Reply from Server'; break
+					case '15': result.ddns_status_str = 'Oray Failed: Incorrect User or Password'; break
+					case '16': result.ddns_status_str = 'Oray Failed: Incorrect Hostname'; break
+					case '17': result.ddns_status_str = 'Oray Succeed'; break
+					case '18': result.ddns_status_str = 'Reserved'; break
+					case '19': result.ddns_status_str = 'Reserved'; break
+					case '20': result.ddns_status_str = 'Reserved'; break
+					case '21': result.ddns_status_str = 'Reserved'; break
+				}
+			}
+			
+			if( result.upnp_status ) {
+				switch( result.upnp_status ) {
+					case '0': result.upnp_status_str = 'No Action'; break
+					case '1': result.upnp_status_str = 'Succeed'; break
+					case '2': result.upnp_status_str = 'Device System Error'; break
+					case '3': result.upnp_status_str = 'Errors in Network Communication'; break
+					case '4': result.upnp_status_str = 'Errors in Chat with UPnP Device'; break
+					case '5': result.upnp_status_str = 'Rejected by UPnP Device, Maybe Port Conflict'; break
+				}
+			}
+			
+			cb( result )
+		}
+	})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## status
+### ( callback )
+**Permission: everyone**
+
+Get basic details from the camera.
+
+```js
+cam.<span class="apidocCodeKeywordSpan">status</span>( console.log )
+```
+```js
+{ id: '001A11A00A0B',
+sys_ver: '0.37.2.36',
+app_ver: '3.2.2.18',
+alias: 'Cam1',
+now: '1343304558',
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.foscam.talk" id="apidoc.module.foscam.talk">module foscam.talk</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.foscam.talk.talk" id="apidoc.element.foscam.talk.talk">
+        function <span class="apidocSignatureSpan">foscam.</span>talk
+        <span class="apidocSignatureSpan">( props )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">talk = function ( props ) {
+	
+	if( !props.fields ) {
+		props.fields = {}
+	}
+	
+	props.fields.user = app.settings.user
+	props.fields.pwd = app.settings.pass
+	path = '/'+ props.path +'?'+ querystring.stringify( props.fields )
+	
+	// connect
+	var req = http.request({
+		
+		host:		app.settings.host,
+		port:		app.settings.port,
+		path:		path,
+		method:		'GET'
+		
+	}, function( response ) {
+		
+		// response
+		response.setEncoding( props.encoding ? props.encoding : 'utf8' )
+		var data = ''
+		
+		response.on( 'data', function( chunk ) { data += chunk })
+		response.on( 'end', function() {
+			
+			if( typeof props.callback == 'function' ) {
+				data = data.trim()
+				props.callback( data )
+			}
+			
+		})
+		
+	})
+	
+	// fail
+	req.on( 'error', function( err ) {
+		app.emit( 'connection-error', err )
+	})
+	
+	// disconnect
+	req.end()
+	
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		app.status( cb )
+	}
+}
+
+
+// status
+app.status = function( cb ) {
+	app.<span class="apidocCodeKeywordSpan">talk</span>({
+		path:		'get_status.cgi',
+		callback:	function( data ) {
+			var result = {}
+			
+			data = data.split('\n')
+			for( var d in data ) {
+				if( data[d] != '' ) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
