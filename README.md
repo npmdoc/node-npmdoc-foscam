@@ -1,6 +1,6 @@
 # npmdoc-foscam
 
-#### api documentation for  [foscam (v0.2.2)](https://github.com/fvdm/nodejs-foscam#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-foscam.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-foscam) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-foscam.svg)](https://travis-ci.org/npmdoc/node-npmdoc-foscam)
+#### basic api documentation for  [foscam (v0.2.2)](https://github.com/fvdm/nodejs-foscam#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-foscam.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-foscam) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-foscam.svg)](https://travis-ci.org/npmdoc/node-npmdoc-foscam)
 
 #### Remote control, view and config a Foscam/Tenvis IP camera
 
@@ -59,7 +59,8 @@
         "type": "git",
         "url": "git://github.com/fvdm/nodejs-foscam.git"
     },
-    "version": "0.2.2"
+    "version": "0.2.2",
+    "bin": {}
 }
 ```
 
